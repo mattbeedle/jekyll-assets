@@ -9,7 +9,9 @@ module Jekyll
 
         # --------------------------------------------------------------------
 
-        def self.call(context, jekyll = context[:environment].jekyll)
+        def self.call(context, jekyll = context[:environment].try(:jekyll))
+          return unless jekyll
+
           if context[:environment].parent.asset_config["features"]["liquid"] || \
               File.extname(context[:filename]) == ".liquid"
 
