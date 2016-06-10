@@ -61,10 +61,8 @@ try_require_if_javascript "less" do
       Jekyll::Assets::Processors::LESS
     )
   else
-    Sprockets.register_engine(
-      ".less", Jekyll::Assets::Processors::LESS, {
-        :silence_deprecation => true
-      }
+    Sprockets.register_pipeline(
+      ".less", Jekyll::Assets::Processors::LESS
     )
   end
 end
