@@ -22,7 +22,7 @@ module Jekyll
         def initialize(env)
           super
 
-          @manifest = env.manifest
+          @manifest = env.manifest if env.respond_to?(:manifest)
           @asset_config = env.asset_config
           @jekyll = env.jekyll
         end
