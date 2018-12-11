@@ -23,8 +23,8 @@ module Jekyll
           super
 
           @manifest = env.manifest if env.respond_to?(:manifest)
-          @asset_config = env.asset_config
-          @jekyll = env.jekyll
+          @asset_config = env.asset_config if env.respond_to?(:asset_config)
+          @jekyll = env.jekyll if env.respond_to?(:jekyll)
         end
 
         # --
